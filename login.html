@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfectly Imperfect Juice - Login</title>
+<style>
+/* Reset and General Styles */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+        }
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+color: #333;
+background-color: #f4f4f4;
+        }
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+        }
+/* Header and Navigation */
+header {
+background-color: #4CAF50;
+color: white;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 0;
+        }
+nav h1 {
+font-size: 24px;
+        }
+nav ul {
+list-style: none;
+display: flex;
+        }
+nav ul li {
+margin-left: 20px;
+        }
+nav ul li a {
+color: white;
+text-decoration: none;
+font-weight: bold;
+transition: color 0.3s;
+        }
+nav ul li a:hover {
+color: #fff;
+text-decoration: underline;
+        }
+/* Hero/Login Section */
+#login {
+background-image: url('https://earth.org/wp-content/uploads/2021/01/rsz_the-skyscraper-3105740_1280-1200x900.jpg');
+background-size: cover;
+background-position: center;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: white;
+position: relative;
+        }
+#login::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+        }
+#login .login-content {
+position: relative;
+z-index: 1;
+background: rgba(255, 255, 255, 0.9);
+padding: 40px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+max-width: 400px;
+width: 100%;
+color: #333;
+        }
+#login h2 {
+font-size: 36px;
+margin-bottom: 20px;
+color: #4CAF50;
+        }
+#login form {
+display: flex;
+flex-direction: column;
+        }
+#login label {
+text-align: left;
+margin-bottom: 5px;
+font-weight: bold;
+        }
+#login input {
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+        }
+#login .btn {
+background-color: #4CAF50;
+color: white;
+padding: 15px;
+text-decoration: none;
+font-weight: bold;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background 0.3s;
+        }
+#login .btn:hover {
+background-color: #45a049;
+        }
+#login p {
+margin-top: 15px;
+        }
+#login a {
+color: #4CAF50;
+text-decoration: none;
+        }
+#login a:hover {
+text-decoration: underline;
+        }
+/* Footer */
+footer {
+background-color: #333;
+color: white;
+text-align: center;
+padding: 20px 0;
+position: relative;
+bottom: 0;
+width: 100%;
+        }
+/* Responsive Design */
+@media (max-width: 768px) {
+#login .login-content {
+padding: 20px;
+            }
+        }
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<nav>
+<h1>Perfectly Imperfect Juice</h1>
+<ul>
+
+
+
+
+</ul>
+</nav>
+</div>
+</header>
+<section id="login">
+<div class="login-content">
+<h2>Login</h2>
+<form id="loginForm">
+<label for="username">Username or Email</label>
+<input type="text" id="username" name="username" required>
+<label for="password">Password</label>
+<input type="password" id="password" name="password" required>
+<button type="submit" class="btn">Log In</button>
+</form>
+<p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+</div>
+</section>
+<footer>
+<div class="container">
+<p>&copy; 2025 Perfectly Imperfect Juice. All rights reserved.</p>
+</div>
+</footer>
+<script>
+// Smooth Scroll for Navigation Links (if needed, but since it's login, minimal)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth'
+                    });
+                }
+            });
+        });
+// Hardcoded login info (usernames as names, passwords as SIDs)
+const validUsers = [
+    { username: "Bilal Khan", password: "13136205" },
+    { username: "He Jiaxuan", password: "13075268" },
+    { username: "Lee Cheuk Wai", password: "13143000" },
+    { username: "Lui Hin Ching", password: "13144371" },
+    { username: "Ma Theodore Demetrius", password: "13130237" }
+];
+
+// Simulate Login with JS (no backend)
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    
+    if (username && password) {
+        const user = validUsers.find(u => u.username.toLowerCase() === username.toLowerCase() && u.password === password);
+        if (user) {
+            window.location.href = 'index.html'; // Redirect on successful login
+        } else {
+            alert('Invalid username or password.');
+        }
+    } else {
+        alert('Please fill in all fields.');
+    }
+});
+</script>
+</body>
+</html>
