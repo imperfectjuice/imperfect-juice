@@ -217,7 +217,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     if (username && password) {
         const user = validUsers.find(u => u.username.toLowerCase() === username.toLowerCase() && u.password === password);
         if (user) {
-            window.location.href = 'index.html'; // Redirect on successful login
+            window.location.href = 'home.html'; // Redirect on successful login
         } else {
             alert('Invalid username or password.');
         }
